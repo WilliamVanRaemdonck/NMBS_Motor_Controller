@@ -19,6 +19,8 @@ extern ADC_HandleTypeDef hadc;
 extern UART_HandleTypeDef huart1;
 extern TIM_HandleTypeDef htim3;
 extern TIM_HandleTypeDef htim15;
+extern TIM_HandleTypeDef htim16;
+extern TIM_HandleTypeDef htim17;
 
 extern char* uartBuffer;
 
@@ -128,19 +130,23 @@ void SetMotorSpeedAndDirection_DC(uint8_t potValuePercent, GPIO_PinState motorDi
 void SetMotorSpeedAndDirection_3Phase(uint8_t potValuePercent, GPIO_PinState motorDirection){
 	if(motorDirection == GPIO_PIN_SET){
 		//forwards
-		htim3.Instance->CCR1 = potValuePercent;
-		htim3.Instance->CCR2 = 0;
 		htim3.Instance->CCR3 = potValuePercent;
 		htim3.Instance->CCR4 = 0;
+
+		htim16.Instance->CCR1 = potValuePercent;
+		htim17.Instance->CCR1 = 0;
+
 		htim15.Instance->CCR1 = potValuePercent;
 		htim15.Instance->CCR2 = 0;
 	}
 	else{
 		//backwards
-		htim3.Instance->CCR1 = 0;
-		htim3.Instance->CCR2 = potValuePercent;
 		htim3.Instance->CCR3 = 0;
 		htim3.Instance->CCR4 = potValuePercent;
+
+		htim16.Instance->CCR1 = 0;
+		htim17.Instance->CCR1 = potValuePercent;
+
 		htim15.Instance->CCR1 = 0;
 		htim15.Instance->CCR2 = potValuePercent;
 	}

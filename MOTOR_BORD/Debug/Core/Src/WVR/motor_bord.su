@@ -1,0 +1,4 @@
+../Core/Src/WVR/motor_bord.c:28:6:ReadADCValue	16	static
+../Core/Src/WVR/motor_bord.c:35:6:SetLevelLEDs	16	static
+../Core/Src/WVR/motor_bord.c:73:6:SetMotorSpeedAndDirection_DC	24	static
+../Core/Src/WVR/motor_bord.c:130:6:SetMotorSpeedAndDirection_3Phase	16	static

@@ -1,0 +1,4 @@
+../Core/Src/WVR/motor_bord.c:28:6:ReadADCValue	1
+../Core/Src/WVR/motor_bord.c:35:6:SetLevelLEDs	9
+../Core/Src/WVR/motor_bord.c:73:6:SetMotorSpeedAndDirection_DC	10
+../Core/Src/WVR/motor_bord.c:130:6:SetMotorSpeedAndDirection_3Phase	2
